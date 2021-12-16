@@ -11,6 +11,7 @@ app.use(cors({ origin: CORS }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/', require('./routes/index.routes'));
+app.get('/', (req, res) => { res.send('Welcome') })
 app.listen(PORT, () => {
   console.info(`Server started on port: ${PORT}`);
 });
