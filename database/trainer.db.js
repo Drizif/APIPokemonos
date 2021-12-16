@@ -1,6 +1,8 @@
 const bcrypt = require('bcryptjs');
 const Trainer = require('../models/trainer.model');
 
+const { generateJWT } = require('../helpers/jwt');
+
 class DBFunctions {
   async createTrainer(config) {
     try {
