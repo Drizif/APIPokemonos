@@ -70,7 +70,7 @@ class Controller {
 
   async updateTrainer(req, res) {
     try {
-      const { noCtrl, name, email, password, } = req.trainer;
+      const { noCtrl, name, email, password, favPok } = req.trainer;
       const trainer = await trainerDb.existsNoCtrl(noCtrl);
       if (!trainer) {
         return res.status(404).json({
@@ -78,7 +78,7 @@ class Controller {
           message: 'Trainer does not exists'
         });
       }
-      const data = await trainerDb.updateTrainer(noCtrl, { name, email, password });
+      await trainerDb.updateTrainer(noCtrl, { name, email, password, favPok});
 
       res.json({
         status: true,
