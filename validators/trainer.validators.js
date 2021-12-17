@@ -30,7 +30,9 @@ class Validator {
       name: Joi.string().required(),
       email: Joi.string().required(),
       password: Joi.string().required(),
-      favPok: Joi.array().optional().default(null)
+      favPok: Joi.array().items(
+        Joi.number().required()
+      ).optional().default(null)
     }).options({ allowUnknown: true, stripUnknown: true });
   }
 

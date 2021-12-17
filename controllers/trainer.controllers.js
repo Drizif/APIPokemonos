@@ -61,7 +61,8 @@ class Controller {
 
       res.status(200).json({
         status: true,
-        message: 'Trainer successfully created'
+        message: 'Trainer successfully created',
+        data: req.trainer
       });
     } catch (error) {
       res.status(500).json({
@@ -81,7 +82,7 @@ class Controller {
           message: 'Trainer does not exists'
         });
       }
-      await trainerDb.updateTrainer(noCtrl, { name, email, password, favPok});
+      await trainerDb.updateTrainer(noCtrl, { name, email, password, favPok });
 
       res.json({
         status: true,
