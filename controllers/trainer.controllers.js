@@ -21,8 +21,11 @@ class Controller {
         });
       }
 
+      const data = await trainerDb.getTrainer(noCtrl);
+
       res.json({
         status: true,
+        data,
         token,
       });
     } catch (error) {
